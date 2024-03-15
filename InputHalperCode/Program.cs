@@ -7,17 +7,18 @@ public static class InputHelper
         bool result = false;
         Console.WriteLine(_text);
 
-        int.TryParse(Console.ReadLine(), out inputValue);
+        if (int.TryParse(Console.ReadLine(), out inputValue))
+        {
 
-        if (inputValue >= _min || inputValue <= _max)
-        {
-            Console.WriteLine("Твое число " + inputValue);
-            result = true;
+            if (inputValue >= _min && inputValue <= _max)
+            {
+                result = true;
+            }
+            else
+            {
+                Console.WriteLine("Ошибка");
+            }
+            return result;
         }
-        else
-        {
-            Console.WriteLine("Ошибка");
-        }
-        return result;
     }
 }
